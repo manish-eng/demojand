@@ -1,4 +1,5 @@
 a=int(input())
 b=int(input())
-sum=a+b
+c=int(input())
+sum=a+b+c
 print(sum)
