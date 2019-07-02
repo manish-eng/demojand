@@ -1,1 +1,2 @@
 line1 has information about the line 1
+line2 added
