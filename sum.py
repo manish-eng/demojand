@@ -1,4 +1,6 @@
+print("enter the first no.")
 a=int(input())
+ptinyf("enter the second no.")
 b=int(input())
 <<<<<<< HEAD
 sum=a+b
