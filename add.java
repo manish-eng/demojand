@@ -1,5 +1,5 @@
 import java.util.*;
-class Add{
+class add{
   public static void main(String ar[])
   {
     System.out.println("give two numbers");
