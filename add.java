@@ -1,5 +1,5 @@
 import java.util.*;
-class add{
+class Add{
   public static void main(String ar[])
   {
     System.out.println("give two numbers");
@@ -8,4 +8,5 @@ class add{
     int num2= sc.nextInt();
     int sum= num1+num2;
     System.out.println(sum);
+}
 }
