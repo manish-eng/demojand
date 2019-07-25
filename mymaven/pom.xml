@@ -3,25 +3,25 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.codebind1</groupId>
-  <artifactId>mymaven</artifactId>
+  <artifactId>maven_server</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>mymaven</name>
+  <name>maven_server</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-   
-	 
-		<manifest>
-			<addClasspath>true</addClasspath>
-				<mainClass>com.codebind1.mymaven.App</mainClass>
-							<classpathPrefix>lib/</classpathPrefix>
-							<useUniqueVersions>false</useUniqueVersions>
-						</manifest>
-					 
+  
+  <repositories>
+		<repository>
+			<id>digivalet-global-repo</id>
+			<name>DigiValet Maven Repository</name>
+			<url>http://192.168.0.99:8081/artifactory/digivalet-repo/</url>
+		</repository>
+
+	</repositories>
 
   <dependencies>
     <dependency>
@@ -30,5 +30,33 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+			<groupId>com.digivalet</groupId>
+			<artifactId>encrypt-decrypt</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
   </dependencies>
+  <build>
+  <plugins>
+  <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.0.2</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>com.codebind1.mymaven.App</mainClass>
+							<classpathPrefix>lib/</classpathPrefix>
+							<useUniqueVersions>false</useUniqueVersions>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+			 
+  </plugins>
+  
+  </build>
+   
 </project>
