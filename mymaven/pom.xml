@@ -14,15 +14,14 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
    
-	<archive>
+	 
 		<manifest>
 			<addClasspath>true</addClasspath>
 				<mainClass>com.codebind1.mymaven.App</mainClass>
 							<classpathPrefix>lib/</classpathPrefix>
 							<useUniqueVersions>false</useUniqueVersions>
 						</manifest>
-					</archive>
-				 
+					 
 
   <dependencies>
     <dependency>
