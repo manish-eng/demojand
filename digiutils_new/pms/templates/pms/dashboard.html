@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>setTimeout(function(){window.location.href="/"},180000);</script>
+  </head>
+
+  <body>
+    <div class="card" style="width:60%;margin: 0 auto">
+      <div class="card-body">
+        <div class="card bg-light">
+         <a href="/delete" style="display:block; padding:4px;"><b>ABORT-CONNECTION</b></a>
+          <div class="container" style="text-align: center">
+
+            <h2 style="background-color: LightGray ">Click And Move Onto Desired Utility</h2>
+     <div style="padding-top: 20px;"></div>
+            <div class="row">
+              <div class="col-3 mx-auto">
+                <div class="card" style="">
+                  <a href="{% url 'inputip' %}" class="btn btn-info" role="button">PMS</a>
+                </div>
+              </div>
+              <div class="col-3 mx-auto">
+                <div class="card" style=" ">
+                  {% comment %} <a href="{% url 'output' %}" class="btn btn-info" role="button">GIT PULL</a> {% endcomment %}
+                  <a href="{% url 'pullutility' %}" class="btn btn-info" role="button">GIT PULL</a>
+                </div>
+              </div>
+              {% comment %} <div class="col-3 mx-auto">
+                <div class="card" style=" ">
+                  <a href="{% url 'changedash' %}" class="btn btn-info" role="button">CHANGE CONFIG FILE</a>
+                </div>
+              </div> {% endcomment %}
+              <div class="col-3 mx-auto">
+                <div class="card" style=" ">
+                  <a href="{% url 'softwares_versions' %}" class="btn btn-info" role="button">SOFTWARES & VERSIONS</a>
+                </div>
+              </div>
+          
+            <div style="height: 20px;">
+            </div>
+            {% comment %} <div class="row">
+              <div class="col-4 mx-auto">
+                <div class="card" style=" ">
+                  <a href="{% url 'server_verify' %}" class="btn btn-info" role="button">SERVER VERIFICATION</a>
+                </div>
+              </div> {% endcomment %}
+              {% comment %} <div class="col-4 mx-auto">
+                <div class="card" style=" ">
+                  <a href="{% url 'db_verify' %}" class="btn btn-info" role="button">DATABASE VERIFICATION</a>
+                </div>
+              </div> {% endcomment %}
+              <div class="col-3 mx-auto">
+                <div class="card" style=" ">
+                  <a href="{% url 'service_status_auth_view' %}" class="btn btn-info" role="button">SERVICES STATUS</a>
+                </div>
+              </div>
+            </div>
+            <div style="height: 20px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

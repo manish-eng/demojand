@@ -1,0 +1,54 @@
+
+<html>
+<head>
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>setTimeout(function(){window.location.href="/"},180000);</script>
+
+  </head>
+<body>
+    <div class="card" style="width:800px;margin: 0 auto;float: none;margin-bottom: 10px;"> 
+        <div class="card-body">
+               <ul class='nav'>
+  <li style="padding:8px;"><a href="/dashboard"><b>BACK</b></a></a></li>
+  <li style="padding:8px;"><a href="/delete"><b>ABORT-CONNECTION</b></a></li>
+  <li style="padding:8px;text-align: right;"><a href="/pms/dg_file">dgjava</a> </li>
+     </ul>
+
+            <div class="card bg-light">
+                <div class="container" style="text-align: center">
+<h2 style="background-color: LightGray;">SET PMS SERVER IP</h2><br>
+<form action="{% url 'script' %}" method="POST">
+    <h6><font color="purple">Current IP : {{var}}</font></h6> <br>  
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><button type="submit">Change</button></p>
+ </form>
+
+</div>
+</div>
+</div>
+</div>
+<div class="card" style="width:800px;margin: 0 auto;float: none;margin-bottom: 10px;">  
+        <div class="card-body">
+            <div class="card bg-light">
+            
+                <div class="container" style="text-align: center">
+                        <p><b>{{msg}} {{errmsg}} {{file_content2}}<b></p>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+
+
+
+
+
+</body>
+</html>
+

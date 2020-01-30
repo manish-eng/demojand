@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ <script>setTimeout(function(){window.location.href="/"},120000);</script>
+
+</head>
+    <body>
+      <div class="card" style="width:800px;margin: 0 auto;float: none;margin-bottom: 10px;">
+      <div class="card-body">
+        <ul class='nav'>
+  <li style="padding:8px;"><a href="/dashboard"><b>BACK</b></a></a></li>
+  <li style="padding:8px;"><a href="/delete"><b>ABORT-CONNECTION</b></a></li>
+     </ul>
+        <div class="card bg-light">
+          <div class="container" style="text-align: center">
+          <h2 style="text-align:center;background-color: LightGray">SOFTWARES & VERSIONS</h2><br>
+        
+        <form action="{% url 'softwares_versions' %}" method="POST" style="text-align: center; display: inline-block;">
+            {% csrf_token %}
+           <table>
+             <tr>
+                {{form.as_table}}
+             </tr>
+            </table>
+            <div style="padding-top: 20px;"></div>
+                <input type="submit" value="Get Version" name="_single"><br>
+        <label style="margin-top: 20px;"><input type="submit" value="Version of all Softwares" name="_all"></label>
+        </form>
+    </div>
+ </div>
+          
+      </div>
+      </div>
+  
+      <div class="card" style="width:800px;margin: 0 auto;float: none;margin-bottom: 10px;">
+        <div class="card-body"> 
+            <div class="card bg-light">
+              <div class="container" style="text-align: center;">
+              <p><b>{{file_content2 | linebreaks}} </p>
+              </div>
+            </div>
+            </div>
+            </div>
+            </div>
+          </body>
+</html>
