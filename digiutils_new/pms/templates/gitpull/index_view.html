@@ -2,9 +2,6 @@
 
 
 {% block content %}
-
- <script>setTimeout(function(){window.location.href="/"},120000);</script>
-
       <div class="jumbotron">
         <h1 style="display:inline;"> Digiutils : </h1>
         <h3 style="display:inline;"> Tools For Configurations Management !! </h3>
@@ -12,12 +9,19 @@
 
         <hr style="clear:both;" />
         <h1 class="display-4">
-          <hr class="my-4">
-          <h5 style="color:#800000;">Current User is : {{ user.username }}</h5>
 
+          <hr class="my-4">
+          {% if request.user.is_authenticated %}
+                    <h5 style="color:#800000;">Current User is : {{ user.username }}</h5>
+{% endif %}
       </div>
-  <footer style="text-align:center;">
+      
+ <footer style="text-align:center;">
   <p>On Behalf of Release Team</p>
   <p>Digivalet</p>
 </footer>
+
 {% endblock %}
+
+
+

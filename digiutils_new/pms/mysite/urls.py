@@ -19,6 +19,7 @@ from changeconfig import views
 
 
 urlpatterns = [
+    path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('pms/',include('pms.urls')),
     path('',include('gitpull.urls')),

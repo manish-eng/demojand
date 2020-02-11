@@ -7,7 +7,7 @@ rm -rf demo.txt
 echo $dasha >> demo.txt
 dashvera=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "dashboard" ; echo $dashvera ; ) |tr '\n' '\t' >> status.txt
+(echo "dashboard" ; echo "-"; echo $dashvera ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -18,7 +18,7 @@ rm -rf demo.txt
 echo $dashb >> demo.txt
 dashverb=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "dvs" ; echo $dashverb ; ) |tr '\n' '\t' >> status.txt
+(echo "dvs" ; echo "-"; echo $dashverb ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -31,7 +31,7 @@ rm -rf demo.txt
 echo $dashc >> demo.txt
 dashverc=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "oneauth" ; echo $dashverc ; ) |tr '\n' '\t' >> status.txt
+(echo "oneauth" ; echo "-"; echo $dashverc ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -42,7 +42,7 @@ rm -rf demo.txt
 echo $dashd >> demo.txt
 dashverd=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "push-manager" ; echo $dashverd ; ) |tr '\n' '\t' >> status.txt
+(echo "push-manager" ; echo "-"; echo $dashverd ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -53,7 +53,7 @@ rm -rf demo.txt
 echo $dashe >> demo.txt
 dashvere=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "system-monitor" ; echo $dashvere ; ) |tr '\n' '\t' >> status.txt
+(echo "system-monitor" ; echo "-"; echo $dashvere ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -63,7 +63,7 @@ rm -rf demo.txt
 echo $dashf >> demo.txt
 dashverf=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "cms" ; echo $dashverf ; ) |tr '\n' '\t' >> status.txt
+(echo "cms" ; echo "-"; echo $dashverf ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -74,7 +74,7 @@ rm -rf demo.txt
 echo $dashg >> demo.txt
 dashverg=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "digivalet-api" ; echo $dashverg ; ) |tr '\n' '\t' >> status.txt
+(echo "digivalet-api" ; echo "-"; echo $dashverg ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -85,7 +85,7 @@ rm -rf demo.txt
 echo $dashh >> demo.txt
 dashverh=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "digivalet-cloud-api" ; echo $dashverh ; ) |tr '\n' '\t' >> status.txt
+(echo "digivalet-cloud-api" ; echo "-"; echo $dashverh ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -96,7 +96,7 @@ rm -rf demo.txt
 echo $dashi >> demo.txt
 dashveri=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "digivalet-pmsi" ; echo $dashveri ; ) |tr '\n' '\t' >> status.txt
+(echo "digivalet-pmsi" ; echo "-"; echo $dashveri ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -106,7 +106,7 @@ rm -rf demo.txt
 echo $dashj >> demo.txt
 dashverj=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "digivalet-posi" ; echo $dashverj ; ) |tr '\n' '\t' >> status.txt
+(echo "digivalet-posi" ; echo "-"; echo $dashverj ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -118,7 +118,7 @@ rm -rf demo.txt
 echo $dashk >> demo.txt
 dashverk=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "dv-services-api" ; echo $dashverk ; ) |tr '\n' '\t' >> status.txt
+(echo "dv-services-api" ; echo "-"; echo $dashverk ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -129,7 +129,7 @@ rm -rf demo.txt
 echo $dashl >> demo.txt
 dashverl=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "dv-services-cloud-api" ; echo $dashverl ; ) |tr '\n' '\t' >> status.txt
+(echo "dv-services-cloud-api" ; echo "-"; echo $dashverl ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -139,7 +139,7 @@ rm -rf demo.txt
 echo $dashm >> demo.txt
 dashverm=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "gateway-services" ; echo $dashverm; ) |tr '\n' '\t' >> status.txt
+(echo "gateway-services" ; echo "-"; echo $dashverm; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -150,7 +150,7 @@ rm -rf demo.txt
 echo $dashn >> demo.txt
 dashvern=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "printer-mailer" ; echo $dashvern ; ) |tr '\n' '\t' >> status.txt
+(echo "printer-mailer" ; echo "-"; echo $dashvern ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -161,7 +161,7 @@ rm -rf demo.txt
 echo $dasho >> demo.txt
 dashvero=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "service-assistance" ; echo $dashvero ; ) |tr '\n' '\t' >> status.txt
+(echo "service-assistance" ; echo "-"; echo $dashvero ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -171,7 +171,7 @@ rm -rf demo.txt
 echo $dashp >> demo.txt
 dashverp=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "digivalet-butler" ; echo $dashverp ; ) |tr '\n' '\t' >> status.txt
+(echo "digivalet-butler" ; echo "-"; echo $dashverp ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -181,7 +181,7 @@ rm -rf demo.txt
 echo $dashq >> demo.txt
 dashverq=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "butler-system" ; echo $dashverq ; ) |tr '\n' '\t' >> status.txt
+(echo "butler-system" ; echo "-"; echo $dashverq ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -192,7 +192,7 @@ rm -rf demo.txt
 echo $dashr >> demo.txt
 dashverr=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "digivalet-zigbee" ; echo $dashverr ; ) |tr '\n' '\t' >> status.txt
+(echo "digivalet-zigbee" ; echo "-"; echo $dashverr ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -203,7 +203,7 @@ rm -rf demo.txt
 echo $dashs >> demo.txt
 dashvers=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "digivalet-entertainment" ; echo $dashvers ; ) |tr '\n' '\t' >> status.txt
+(echo "digivalet-entertainment" ; echo "-"; echo $dashvers ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
  
@@ -216,7 +216,7 @@ rm -rf demo.txt
 echo $dasht >> demo.txt
 dashvert=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "digivalet-cloud-db" ; echo $dashvert ; ) |tr '\n' '\t' >> status.txt
+(echo "digivalet-cloud-db" ; echo "-"; echo $dashvert ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
 
 
@@ -227,7 +227,7 @@ rm -rf demo.txt
 echo $dashu >> demo.txt
 dashveru=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "digivalet-db" ; echo $dashveru ; ) |tr '\n' '\t' >> status.txt
+(echo "digivalet-db" ; echo "-"; echo $dashveru ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -238,7 +238,7 @@ rm -rf demo.txt
 echo $dashv >> demo.txt
 dashverv=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "digivalet-dvs-db" ; echo $dashverv ; ) |tr '\n' '\t' >> status.txt
+(echo "digivalet-dvs-db" ; echo "-"; echo $dashverv ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -249,7 +249,7 @@ rm -rf demo.txt
 echo $dashw >> demo.txt
 dashverw=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "digivalet-mymovie-db" ; echo $dashverw ; ) |tr '\n' '\t' >> status.txt
+(echo "digivalet-mymovie-db" ; echo "-"; echo $dashverw ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -260,7 +260,7 @@ rm -rf demo.txt
 echo $dashx >> demo.txt
 dashverx=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "digivalet-oneauth-db" ; echo $dashverx ; ) |tr '\n' '\t' >> status.txt
+(echo "digivalet-oneauth-db" ; echo "-"; echo $dashverx ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
 
@@ -270,14 +270,15 @@ rm -rf demo.txt
 echo $dashy >> demo.txt
 dashvery=`sed -e 's/\(.*\)-ga.el7.centos/\1/' demo.txt`
 rm -rf demo.txt
-(echo "digivalet-butler-db" ; echo $dashvery ; ) |tr '\n' '\t' >> status.txt
+(echo "digivalet-butler-db" ; echo "-"; echo $dashvery ; ) |tr '\n' '\t' >> status.txt
 echo " " >> status.txt
  
-echo "-------------------------------------- Softwares & Versions --------------------------------------" >> final_output.txt
+echo "-------------------------------------- Softwares & Versions ----------------------------------" >> final_output.txt
 echo " " >> final_output.txt
-echo " " >> final_output.txt
+cat status.txt >> final_output.txt
 
-awk '{print "|"$1"#|"$2"#|"}' status.txt|column -s"#" -t |awk 'BEGIN{line=""}{l=length($0);if(length(line)==0)for(i=1;i<l;i++)line=line"-";print line;print $0}END{print line}' >> final_output.txt
+
+# awk '{print "|"$1"#|"$2"#|"}' status.txt|column -s"#" -t |awk 'BEGIN{line=""}{l=length($0);if(length(line)==0)for(i=1;i<l;i++)line=line"-";print line;print $0}END{print line}' >> final_output.txt
 
 
 rm -rf status.txt

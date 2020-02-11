@@ -131,3 +131,33 @@ STATICFILES_DIRS=[
 STATIC_DIR,
 ]
 
+LOGIN_REDIRECT_URL = '/ssh_dashboard'
+LOGOUT_REDIRECT_URL = '/'
+# LOGGING = {
+#     'version': 1,
+#     # Version of logging
+#     'disable_existing_loggers': False,
+#     #disable logging 
+#     # Handlers #############################################################
+#     'handlers': {
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': 'digiutils-debug.log',
+#         },
+# ########################################################################
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#         },
+#     },
+#     # Loggers ####################################################################
+#     'loggers': {
+#         'django': {
+#             'handlers': ['file', 'console'],
+#             'level': 'DEBUG',
+#             'propagate': True,
+#             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
+#         },
+#     },
+# }
+

@@ -3,13 +3,18 @@ from .forms import GitPullForm,SSHForm
 from .models import SSHauth
 import subprocess
 import os
+from django.contrib import auth
 from django.http import HttpResponse, HttpResponseNotFound, Http404,  HttpResponseRedirect
-
+# from django.contrib.auth.decorators import login_required
 
 
 
 def dashboard(request):
     return render(request,'gitpull/dashboard.html')
+
+def index_view(request):
+    return render(request,'gitpull/index_view.html')
+
 
 def ssh_dashboard(request):
     count = SSHauth.objects.all().count()
@@ -50,7 +55,8 @@ def ssh_dashboard(request):
 def delete(request):
     form = SSHForm()
     SSHauth.objects.all().delete()
-    return render(request,'gitpull/ssh_dashboard.html',{'form':form})   
+    auth.logout(request)
+    return render(request,'gitpull/index_view.html',{'form':form})   
 
 
 

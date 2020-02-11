@@ -8,14 +8,16 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>setTimeout(function(){window.location.href="/"},120000);</script>
 </head>
     <body>
-      <div class="card" style="width:800px;margin: 0 auto;float: none;margin-bottom: 10px;">
+      <div class="card" style="width:1000px;margin: 0 auto;float: none;margin-bottom: 10px;">
       <div class="card-body">
-        
+         <a class="nav-link" href="/accounts/logout/">Logout</a>
         <div class="card bg-light">
           <div class="container" style="text-align: center">
-          <h2 style="text-align:center;background-color: LightGray">SSH To Server</h2>
+          <h2 style="text-align:center;background-color: LightGray">Enter Credentials To Login Server</h2>
+          <div style="padding-top: 20px;"></div>
           <form action="{% url 'ssh_dashboard' %}" method="POST" style="text-align: center; display: inline-block;">
             {% csrf_token %}
            <table>
@@ -31,7 +33,7 @@
         </div>
       </div>
       </div>
-      <div class="card" style="width:800px;margin: 0 auto;float: none;margin-bottom: 10px;">
+      <div class="card" style="width:1000px;margin: 0 auto;float: none;margin-bottom: 10px;">
         <div class="card-body"> 
             <div class="card bg-light">
               <div class="container" style="text-align: center;">
@@ -41,5 +43,14 @@
             </div>
             </div>
             </div>
+            <footer>
+ <footer style="text-align:center;">
+  <p style="font-family: 'Poppins', sans-serif;
+      font-size: 1.1em;
+      font-weight: 300;
+      line-height: 1.7em;
+      color: #999;">On Behalf of Release Team <br>
+  Digivalet</p>
+</footer>
           </body>
 </html>

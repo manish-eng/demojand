@@ -45,8 +45,7 @@ def softwares_versions(request):
                 file_content = f.read()
                 f.close()
                 os.system("rm -rf /var/lib/digivalet/digiutils_new/pms/final_output.txt")
-                context = {'file_content': file_content}
-                return HttpResponse(file_content, content_type="text/plain", )
+                return render(request,'softwaresversions/version.html',{'form':form,'file_content': file_content})
             elif '_single':
                 select_software = form.cleaned_data['select_software']
                 print(select_software)

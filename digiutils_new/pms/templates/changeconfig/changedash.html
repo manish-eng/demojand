@@ -1,16 +1,11 @@
-<!DOCTYPE html>
+{% extends 'gitpull/base.html' %}
 
-<html lang="en" dir="ltr">
-<head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
+
+{% block content %}
+ <script>setTimeout(function(){window.location.href="/"},120000);</script>
+
     <body>
-        <div class="card" style="width:800px;margin: 0 auto;float: none;margin-bottom: 10px;"> 
+        <div class="card" style="width:100%;margin: 0 auto;float: none;margin-bottom: 10px;"> 
             <div class="card-body">
                 <a href="/dashboard"><b>HOME</b></a>
                 <a href="/changeconfig/app_file/" style="float: right;">app-config.json</a>
@@ -48,5 +43,4 @@
                             </div>
                               </div>
                               </div>
-                </body>
-</html>
+{% endblock %}

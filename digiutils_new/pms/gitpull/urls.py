@@ -9,11 +9,13 @@ from gitpull.views import (
     pullutility,
     ssh_dashboard,
     delete,
+    index_view,
    
 )
 
 urlpatterns= [
-    path('', view=ssh_dashboard, name='ssh_dashboard'),
+    path('', view=index_view, name='index_view'),
+    path('ssh_dashboard', view=ssh_dashboard, name='ssh_dashboard'),
     path('dashboard/', view=dashboard, name='dashboard'),
     path('output/', view=output, name='output'),
     path('pullutility/', view=pullutility, name='pullutility'),
