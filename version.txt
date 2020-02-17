@@ -1,0 +1,84 @@
+digiutils-version : 3.0.1
+Git Commit : 875ac8e2fffe365b64684529cf716f99a0ef1cf5
+Git Branch : origin/master
+Git Auther Name: 
+Auther Email : 
+Git Commiter Name : 
+Git Commiter Email : 
+digiutils-version : 3.0.2
+Git Commit : c37199bebac07f7aea8d460b5a747249c42648bc
+Git Branch : origin/master
+Git Auther Name: 
+Auther Email : 
+Git Commiter Name : 
+Git Commiter Email : 
+digiutils-version : 3.0.3
+Git Commit : c37199bebac07f7aea8d460b5a747249c42648bc
+Git Branch : origin/master
+Git Auther Name: 
+Auther Email : 
+Git Commiter Name : 
+Git Commiter Email : 
+digiutils-version : 3.0.4
+Git Commit : 5a225f9c59405b6966340a9a0fbb898445bd3f56
+Git Branch : origin/master
+Git Auther Name: 
+Auther Email : 
+Git Commiter Name : 
+Git Commiter Email : 
+digiutils-version : 3.0.5
+Git Commit : 5a225f9c59405b6966340a9a0fbb898445bd3f56
+Git Branch : origin/master
+Git Auther Name: 
+Auther Email : 
+Git Commiter Name : 
+Git Commiter Email : 
+digiutils-version : 3.0.6
+Git Commit : 5a225f9c59405b6966340a9a0fbb898445bd3f56
+Git Branch : origin/master
+Git Auther Name: 
+Auther Email : 
+Git Commiter Name : 
+Git Commiter Email : 
+digiutils-version : 3.0.7
+Git Commit : 5a225f9c59405b6966340a9a0fbb898445bd3f56
+Git Branch : origin/master
+Git Auther Name: 
+Auther Email : 
+Git Commiter Name : 
+Git Commiter Email : 
+digiutils-version : 3.0.8
+Git Commit : 5a225f9c59405b6966340a9a0fbb898445bd3f56
+Git Branch : origin/master
+Git Auther Name: 
+Auther Email : 
+Git Commiter Name : 
+Git Commiter Email : 
+digiutils-version : 3.0.9
+Git Commit : 5a225f9c59405b6966340a9a0fbb898445bd3f56
+Git Branch : origin/master
+Git Auther Name: 
+Auther Email : 
+Git Commiter Name : 
+Git Commiter Email : 
+digiutils-version : 3.0.10
+Git Commit : 5a225f9c59405b6966340a9a0fbb898445bd3f56
+Git Branch : origin/master
+Git Auther Name: 
+Auther Email : 
+Git Commiter Name : 
+Git Commiter Email : 
+digiutils-version : 3.0.11
+Git Commit : 0531bac71149715fccf603759c1f4772a57f571f
+Git Branch : origin/master
+Git Auther Name: 
+Auther Email : 
+Git Commiter Name : 
+Git Commiter Email : 
+digiutils-version : 3.0.T.1
+Git Commit : d328feef29a4c00d79a6c4c878e1a6c88ba1bf46
+Git Branch : origin/test
+Git Auther Name: 
+Auther Email : 
+Git Commiter Name : 
+Git Commiter Email : 

@@ -1,0 +1,800 @@
+
+========================= Artifactory and Rundeck service status check =========================
+
+● artifactory.service - Setup Systemd script for Artifactory in Tomcat Servlet Engine
+   Loaded: loaded (/usr/lib/systemd/system/artifactory.service; enabled; vendor preset: disabled)
+   Active: inactive (dead) since Wed 2020-01-08 07:35:30 UTC; 1 weeks 2 days ago
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+● rundeckd.service - SYSV: rundeckd, providing rundeckd
+   Loaded: loaded (/etc/rc.d/init.d/rundeckd; bad; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Wed 2020-01-08 07:35:28 UTC; 1 weeks 2 days ago
+     Docs: man:systemd-sysv-generator(8)
+ Main PID: 1301 (code=exited, status=1/FAILURE)
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+
+============================ FQDN Verify ==============================
+
+
+============================ App-config ============================
+
+
+
+    "fqdn_or_ip": "mds-automation.digivalet.com",
+    "fqdn_or_ip": "das-automation.digivalet.com",
+    "fqdn_or_ip": "dvs-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+      "fqdn": "his-automation.digivalet.com",
+      "fqdn": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "analytics-automation.digivalet.com",
+
+
+    "hotelProperties": {
+      "hotelId": "2",
+      "hotelCode": "TOBL",
+
+
+
+============================ DB-config ============================
+
+
+
+        "host": "mds-automation.digivalet.com",
+        "host": "mds-automation.digivalet.com",
+
+
+
+============================ dgjava ============================
+
+
+
+DAS=http://das-automation.digivalet.com
+DAS_SSL=https://das-automation.digivalet.com
+DVS=http://dvs-automation.digivalet.com
+DVS_SSL=https://dvs-automation.digivalet.com
+HIS=http://his-automation.digivalet.com
+HIS_SSL=https://his-automation.digivalet.com
+MDS=http://mds-automation.digivalet.com
+MDS_SSL=https://mds-automation.digivalet.com
+VOD=http://vod-automation.digivalet.com
+VOD_SSL=https://vod-automation.digivalet.com
+BUTLER=http://butler-automation.digivalet.com
+BUTLER_SSL=https://butler-automation.digivalet.com
+PRINT_MAILER_SSL=http://his-automation.digivalet.com:9004/printmail/performOrderAction
+BUTLER_CALL_SSL=http://butler-automation.digivalet.com:9005/butler/callbutler
+GATEWAY_SERV_SSL=http://his-automation.digivalet.com:9008/gateway-services
+
+
+HOTEL_CODE=DEV-SERVER
+
+
+
+============================ CRON Verify ============================
+
+BASH_ENV=/var/lib/digivalet/digivalet-config/dgjava
+SHELL=/bin/bash
+* * * * *     root    /usr/bin/curl -H "Content-Type:application/vnd.digivalet.v1+json" $DVS_SSL/dvs/api/server/rundeck/jobState?access_token=da1ca0a34d72bd530bfc21b7a4d70ec903a0611c18058eb8b6290cae6644251e >> /var/log/dvc/dvs_sync_jobs.log
+
+* * * * *     root    /usr/bin/curl -H "Content-Type:application/vnd.digivalet.v1+json"  $DVS_SSL/dvs/api/server/controller/status?access_token=da1ca0a34d72bd530bfc21b7a4d70ec903a0611c18058eb8b6290cae6644251e >> /var/log/dvc/dvs_status_update.log
+
+* * * * *     root    /usr/bin/curl -H "Content-Type:application/vnd.digivalet.v1+json"  $DVS_SSL/dvs/api/pushUpdate/sendUpdate?access_token=da1ca0a34d72bd530bfc21b7a4d70ec903a0611c18058eb8b6290cae6644251e >> /var/log/dvc/dvs_push_update.log
+
+*/3 * * * *     root    /usr/bin/curl -H "Content-Type:application/vnd.digivalet.v1+json" $DVS_SSL/dvs/api/hotel/autoSync?access_token=da1ca0a34d72bd530bfc21b7a4d70ec903a0611c18058eb8b6290cae6644251e
+
+
+-rw-r--r--. 1 root root 1001 Mar 18  2019 /etc/cron.d/dvs
+
+
+
+============================ Version Verify ============================
+
+digivalet-butler-db.x86_64        5.0.3-ga.el7.centos            @dgrepo        
+digivalet-mymovie-db.x86_64       5.0.4-ga.el7.centos            @dgrepo        
+digivalet-oneauth-db.x86_64       5.0.4-ga.el7.centos            @dgrepo        
+digivalet-posi.x86_64             5.0.72-ga.el7.centos           @dgrepo        
+digivalet-zigbee.x86_64           5.0.27-ga.el7.centos           @dgrepo        
+nodejs.x86_64                     2:8.10.0-1nodesource           @dgrepo        
+oneauth.noarch                    5.0.19-ga.el7.centos           @dgrepo        
+push-manager.x86_64               5.0.23-ga.el7.centos           @dgrepo        
+service-assistance.x86_64         5.0.42-ga.el7.centos           @dgrepo        
+system-monitor.x86_64             5.0.15-ga.el7.centos           @dgrepo        
+
+
+cms.noarch                        5.0.0.M.8-ga.el7.centos        installed      
+lcms2.x86_64                      2.6-3.el7                      @base          
+
+
+
+============================ dgjava Verify ============================
+
+DAS_SSL=https://das-automation.digivalet.com
+DVS_SSL=https://dvs-automation.digivalet.com
+HIS_SSL=https://his-automation.digivalet.com
+MDS_SSL=https://mds-automation.digivalet.com
+VOD_SSL=https://vod-automation.digivalet.com
+BUTLER_SSL=https://butler-automation.digivalet.com
+
+
+
+============================ Push Manager Verify ============================
+
+
+
+
+
+
+============================ System Monitor Verify ============================
+
+
+
+
+
+	<digivalet-api-host>https://his.tond.digivalet.in/digivalet-api</digivalet-api-host>
+	<oneauth-host>https://das.tond.digivalet.in/oneauth</oneauth-host>
+	<digimailer-host>https://das.tond.digivalet.in/digimailer.php</digimailer-host>
+
+
+<!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="DatePattern" value="'.'yyyy-MM-dd-a'.log'" />
+		<param name="File" value="/var/log/dvc/package/logs/system-monitor-log4j.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+</log4j:configuration>
+
+
+
+============================ Push Manger and System Monitor Service Verify ============================
+
+● push-manager.service - Push Manager
+   Loaded: loaded (/usr/lib/systemd/system/push-manager.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2020-01-08 07:27:09 UTC; 1 weeks 2 days ago
+ Main PID: 1707 (PushManager)
+   CGroup: /system.slice/push-manager.service
+           └─1707 /digivalet/pkg/push-manager/PushManager
+
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at java.net.Socket.connect(Unknown Source)
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(Unknown Source)
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: ... 18 more
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: java.lang.NullPointerException
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.oneauth.client.OneAuthClient.authenticate(Unknown Source)
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.OneAuthTokenHandler.getNewToken(Unknown Source)
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.OneAuthTokenHandler.getAccessToken(Unknown Source)
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.CmsAPIConsumer.getApiResponse(Unknown Source)
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.MessagesDao.getPendingMessages(Unknown Source)
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.MessagesThread.run(Unknown Source)
+
+
+● system-monitor.service - System-Monitor
+   Loaded: loaded (/usr/lib/systemd/system/system-monitor.service; enabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Wed 2020-01-08 07:37:57 UTC; 1 weeks 2 days ago
+ Main PID: 1605 (code=exited, status=143)
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+
+============================ Propert Flies and Templates Verify ============================
+
+total 72
+drwxrwx---.  2 service java 4096 Apr  2  2019 .
+drwxrwx---. 12 service java 4096 Apr  2  2019 ..
+-rwxrwx---.  1 service java 3314 Jan 28  2019 bmslog4j.xml
+-rwxrwx---.  1 service java  401 Jan 28  2019 bmsSettings.xml
+-rwxrwx---.  1 service java 3298 Mar 14  2019 digivaletServicelog4j.xml
+-rwxrwx---.  1 service java  448 Mar 14  2019 digivaletServiceSettings.xml
+lrwxrwxrwx.  1 service java   50 Apr  2  2019 irdTemplate.html -> /var/lib/digivalet/digivalet-posi/irdTemplate.html
+-rwxrwx---.  1 service java 3314 Mar 14  2019 pmslog4j.xml
+-rwxrwx---.  1 service java  512 Mar 14  2019 pmsSettings.xml
+-rwxrwx---.  1 service java 3314 Feb  8  2019 posilog4j.xml
+-rwxrwx---.  1 service java  301 Feb  8  2019 posiSettings.xml
+lrwxrwxrwx.  1 service java   65 Apr  2  2019 printerconfiguration.properties -> /var/lib/digivalet/printer-mailer/printerconfiguration.properties
+-rwxrwx---.  1 service java 3328 Apr  1  2019 printerMailerlog4j.xml
+-rwxrwx---.  1 service java  336 Apr  1  2019 printerMailerSettings.xml
+lrwxrwxrwx.  1 service java   55 Apr  2  2019 push_manager_config.xml -> /var/lib/digivalet/push-manager/push_manager_config.xml
+-rwxrwx---.  1 service java 3341 Feb  5  2019 serviceAssistancelog4j.xml
+-rwxrwx---.  1 service java  338 Feb  5  2019 serviceAssistanceSettings.xml
+lrwxrwxrwx.  1 service java   54 Apr  2  2019 spaTemplate.html -> /var/lib/digivalet/service-assistance/spaTemplate.html
+-rwxrwx---.  1 service java 1075 Jun  8  2018 system-monitor-config.xml
+-rwxrwx---.  1 service java 1204 Jun  8  2018 system-monitor-log4j.xml
+-rwxrwx---.  1 service java 2092 Aug 24  2018 zigbeelog4j.xml
+-rwxrwx---.  1 service java  314 Aug 24  2018 zigbeeSettings.xml
+
+
+
+============================ Services Status Check ============================
+
+● push-manager.service - Push Manager
+   Loaded: loaded (/usr/lib/systemd/system/push-manager.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2020-01-08 07:27:09 UTC; 1 weeks 2 days ago
+ Main PID: 1707 (PushManager)
+   CGroup: /system.slice/push-manager.service
+           └─1707 /digivalet/pkg/push-manager/PushManager
+
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at java.net.Socket.connect(Unknown Source)
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(Unknown Source)
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: ... 18 more
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: java.lang.NullPointerException
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.oneauth.client.OneAuthClient.authenticate(Unknown Source)
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.OneAuthTokenHandler.getNewToken(Unknown Source)
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.OneAuthTokenHandler.getAccessToken(Unknown Source)
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.CmsAPIConsumer.getApiResponse(Unknown Source)
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.MessagesDao.getPendingMessages(Unknown Source)
+Jan 17 12:53:39 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.MessagesThread.run(Unknown Source)
+
+
+● system-monitor.service - System-Monitor
+   Loaded: loaded (/usr/lib/systemd/system/system-monitor.service; enabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Wed 2020-01-08 07:37:57 UTC; 1 weeks 2 days ago
+ Main PID: 1605 (code=exited, status=143)
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+● digivalet-pmsi.service - digivalet-pmsi WEB Interface
+   Loaded: loaded (/usr/lib/systemd/system/digivalet-pmsi.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2020-01-15 13:39:06 UTC; 1 day 23h ago
+  Process: 5078 ExecStartPre=/usr/bin/chmod -R 775 /digivalet/pkg/digivalet-pmsi (code=exited, status=0/SUCCESS)
+  Process: 5075 ExecStartPre=/usr/bin/chown -R service:java /digivalet/pkg/digivalet-pmsi (code=exited, status=0/SUCCESS)
+ Main PID: 5081 (digivalet-pmsi)
+   CGroup: /system.slice/digivalet-pmsi.service
+           └─5081 /digivalet/pkg/digivalet-pmsi/bin/digivalet-pmsi
+
+Jan 15 13:39:09 hydra-automation.digivalet.com digivalet-pmsi[5081]: log4j:WARN Document is invalid: no grammar found.
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: SLF4J: Defaulting to no-operation (NOP) logger implementation
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: Jan 15, 2020 7:09:22 PM org.apache.catalina.startup.HostConfig deployDirectory
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: INFO: Deployment of web application directory /digivalet/pkg/digivalet-pmsi/webapps/pmsi has finished in 16,099 ms
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: Jan 15, 2020 7:09:22 PM org.apache.coyote.AbstractProtocol start
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: INFO: Starting ProtocolHandler ["http-nio-9002"]
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: Jan 15, 2020 7:09:22 PM org.apache.catalina.startup.Catalina start
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: INFO: Server startup in 16234 ms
+
+
+● digivalet-posi.service - digivalet-posi WEB Interface
+   Loaded: loaded (/usr/lib/systemd/system/digivalet-posi.service; enabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Wed 2020-01-08 07:34:27 UTC; 1 weeks 2 days ago
+ Main PID: 1257 (code=exited, status=143)
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+● printer-mailer.service - printer-mailer WEB Interface
+   Loaded: loaded (/usr/lib/systemd/system/printer-mailer.service; enabled; vendor preset: disabled)
+   Active: active (running) since Fri 2020-01-17 10:36:27 UTC; 2h 17min ago
+  Process: 8837 ExecStartPre=/usr/bin/chmod -R 775 /digivalet/pkg/printer-mailer (code=exited, status=0/SUCCESS)
+  Process: 8834 ExecStartPre=/usr/bin/chown -R service:java /digivalet/pkg/printer-mailer (code=exited, status=0/SUCCESS)
+ Main PID: 8840 (printer-mailer)
+   CGroup: /system.slice/printer-mailer.service
+           └─8840 /digivalet/pkg/printer-mailer/bin/printer-mailer
+
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: Jan 17, 2020 4:06:58 PM org.apache.catalina.startup.HostConfig deployDirectory
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: INFO: Deploying web application directory /digivalet/pkg/printer-mailer/webapps/manager
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: Jan 17, 2020 4:06:58 PM org.apache.jasper.servlet.TldScanner scanJars
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: Jan 17, 2020 4:06:58 PM org.apache.catalina.startup.HostConfig deployDirectory
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: INFO: Deployment of web application directory /digivalet/pkg/printer-mailer/webapps/manager has finished in 20 ms
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: Jan 17, 2020 4:06:58 PM org.apache.coyote.AbstractProtocol start
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: INFO: Starting ProtocolHandler ["http-nio-9004"]
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: Jan 17, 2020 4:06:58 PM org.apache.catalina.startup.Catalina start
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: INFO: Server startup in 30308 ms
+
+
+● gateway-services.service - gateway services WEB Interface
+   Loaded: loaded (/usr/lib/systemd/system/gateway-services.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2020-01-08 07:27:09 UTC; 1 weeks 2 days ago
+ Main PID: 1699 (gateway-service)
+   CGroup: /system.slice/gateway-services.service
+           └─1699 /digivalet/pkg/gateway-services/bin/gateway-services
+
+Jan 17 12:53:50 hydra-automation.digivalet.com gateway-services[1699]: ERROR 2020-01-17 18:23:50,891 [Thread-6][?:logger.DVLogger:?] : com.digivalet.database.DVMySqlConnector:-1|Error in closing connection with database
+Jan 17 12:53:50 hydra-automation.digivalet.com gateway-services[1699]: java.lang.NullPointerException
+Jan 17 12:53:50 hydra-automation.digivalet.com gateway-services[1699]: at com.digivalet.database.DVMySqlConnector.checkconnection(Unknown Source)
+Jan 17 12:53:50 hydra-automation.digivalet.com gateway-services[1699]: at com.digivalet.database.DVMySqlConnector.getconnection(Unknown Source)
+Jan 17 12:53:50 hydra-automation.digivalet.com gateway-services[1699]: at com.digivalet.database.DVRuleEngineDatabase.getAllAcStatus(Unknown Source)
+Jan 17 12:53:50 hydra-automation.digivalet.com gateway-services[1699]: at com.digivalet.digivaletservice.ac.alert.monitoring.DVAcAlertMonitoringService.run(Unknown Source)
+Jan 17 12:53:50 hydra-automation.digivalet.com gateway-services[1699]: ERROR 2020-01-17 18:23:50,892 [Thread-6][?:logger.DVLogger:?] : com.digivalet.database.DVRuleEngineDatabase:-1|Error in getting AC ID
+Jan 17 12:53:50 hydra-automation.digivalet.com gateway-services[1699]: java.lang.NullPointerException
+Jan 17 12:53:50 hydra-automation.digivalet.com gateway-services[1699]: at com.digivalet.database.DVRuleEngineDatabase.getAllAcStatus(Unknown Source)
+Jan 17 12:53:50 hydra-automation.digivalet.com gateway-services[1699]: at com.digivalet.digivaletservice.ac.alert.monitoring.DVAcAlertMonitoringService.run(Unknown Source)
+
+
+● service-assistance.service - Service Assitance WEB Interface
+   Loaded: loaded (/usr/lib/systemd/system/service-assistance.service; enabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Thu 2020-01-09 08:55:29 UTC; 1 weeks 1 days ago
+ Main PID: 11350 (code=exited, status=143)
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+● nodejs-core.service - nodejs core
+   Loaded: loaded (/usr/lib/systemd/system/nodejs-core.service; enabled; vendor preset: disabled)
+   Active: inactive (dead) since Wed 2020-01-08 07:34:38 UTC; 1 weeks 2 days ago
+ Main PID: 2032 (code=killed, signal=TERM)
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+● nodejs-cloud-core.service - nodejs cloud core
+   Loaded: loaded (/usr/lib/systemd/system/nodejs-cloud-core.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2020-01-15 13:43:06 UTC; 1 day 23h ago
+  Process: 5744 ExecStartPre=/usr/bin/sleep 10 (code=exited, status=0/SUCCESS)
+  Process: 5741 ExecStartPre=/usr/bin/chmod -R 775 /var/www/html/dv-services-cloud-api (code=exited, status=1/FAILURE)
+  Process: 5739 ExecStartPre=/usr/bin/chown -R nobody:nobody /var/www/html/dv-services-cloud-api (code=exited, status=1/FAILURE)
+ Main PID: 5783 (node)
+   CGroup: /system.slice/nodejs-cloud-core.service
+           └─5783 /usr/bin/node /var/www/html/dv-services-cloud-api/core.js --ci 932bfab6f8468fc5af49cd158063078bd8cdf9c668bd6d6451bcd6e52ea9f19dfa490c32a9 --cs c369f6efc1478bceae49c3438732038dd297adc23abb3a6401bbd0b22fa5f09fa8480430ae7ee9937e2ca7c599ce38a1e3185b2133e874c272fea086c5302117
+
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/sequelize/.github/ISSUE_TEMPLATE.md’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/sequelize/.github/PULL_REQUEST_TEMPLATE.md’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/sequelize/.gitmodules’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/toposort-class/.gitattributes’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/triple-beam/.gitattributes’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/void-elements/.gitattributes’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/winston-transport/.gitattributes’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/winston-viewer-static/static/.gitkeep’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/with/node_modules/acorn/.gitattributes’: Operation not permitted
+Jan 15 13:43:06 hydra-automation.digivalet.com systemd[1]: Started nodejs cloud core.
+
+
+● nodejs-dashboard.service - nodejs dashboard
+   Loaded: loaded (/usr/lib/systemd/system/nodejs-dashboard.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2020-01-15 08:26:48 UTC; 2 days ago
+ Main PID: 22908 (node)
+   CGroup: /system.slice/nodejs-dashboard.service
+           └─22908 /usr/bin/node /var/www/html/dv-services-api/dashboard.js --ci 932bfab6f8468fc5af49cd158063078bd8cdf9c668bd6d6451bcd6e52ea9f19dfa490c32a9 --cs c369f6efc1478bceae49c3438732038dd297adc23abb3a6401bbd0b22fa5f09fa8480430ae7ee9937e2ca7c599ce38a1e3185b2133e874c272fea086c5302117
+
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/sequelize/.github/ISSUE_TEMPLATE.md’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/sequelize/.github/PULL_REQUEST_TEMPLATE.md’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/sequelize/.gitmodules’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/toposort-class/.gitattributes’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/triple-beam/.gitattributes’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/void-elements/.gitattributes’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/winston-transport/.gitattributes’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/winston-viewer-static/static/.gitkeep’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/with/node_modules/acorn/.gitattributes’: Operation not permitted
+Jan 15 08:26:48 hydra-automation.digivalet.com systemd[1]: Started nodejs dashboard.
+
+
+
+
+
+
+● nodejs-butler.service - nodejs butler
+   Loaded: loaded (/usr/lib/systemd/system/nodejs-butler.service; enabled; vendor preset: disabled)
+   Active: inactive (dead) since Wed 2020-01-08 07:34:36 UTC; 1 weeks 2 days ago
+ Main PID: 2473 (code=killed, signal=TERM)
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+
+============================ DB Service Verify ============================
+
+● mariadb.service - MariaDB 10.2.12 database server
+   Loaded: loaded (/usr/lib/systemd/system/mariadb.service; enabled; vendor preset: disabled)
+  Drop-In: /etc/systemd/system/mariadb.service.d
+           └─migrated-from-my.cnf-settings.conf
+   Active: inactive (dead) since Wed 2020-01-08 07:36:03 UTC; 1 weeks 2 days ago
+     Docs: man:mysqld(8)
+           https://mariadb.com/kb/en/library/systemd/
+ Main PID: 1689 (code=exited, status=0/SUCCESS)
+   Status: "MariaDB server is down"
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+========================= Artifactory and Rundeck service status check =========================
+
+● artifactory.service - Setup Systemd script for Artifactory in Tomcat Servlet Engine
+   Loaded: loaded (/usr/lib/systemd/system/artifactory.service; enabled; vendor preset: disabled)
+   Active: inactive (dead) since Wed 2020-01-08 07:35:30 UTC; 1 weeks 2 days ago
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+● rundeckd.service - SYSV: rundeckd, providing rundeckd
+   Loaded: loaded (/etc/rc.d/init.d/rundeckd; bad; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Wed 2020-01-08 07:35:28 UTC; 1 weeks 2 days ago
+     Docs: man:systemd-sysv-generator(8)
+ Main PID: 1301 (code=exited, status=1/FAILURE)
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+
+============================ FQDN Verify ==============================
+
+
+============================ App-config ============================
+
+
+
+    "fqdn_or_ip": "mds-automation.digivalet.com",
+    "fqdn_or_ip": "das-automation.digivalet.com",
+    "fqdn_or_ip": "dvs-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+      "fqdn": "his-automation.digivalet.com",
+      "fqdn": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "his-automation.digivalet.com",
+    "fqdn_or_ip": "analytics-automation.digivalet.com",
+
+
+    "hotelProperties": {
+      "hotelId": "2",
+      "hotelCode": "TOBL",
+
+
+
+============================ DB-config ============================
+
+
+
+        "host": "mds-automation.digivalet.com",
+        "host": "mds-automation.digivalet.com",
+
+
+
+============================ dgjava ============================
+
+
+
+DAS=http://das-automation.digivalet.com
+DAS_SSL=https://das-automation.digivalet.com
+DVS=http://dvs-automation.digivalet.com
+DVS_SSL=https://dvs-automation.digivalet.com
+HIS=http://his-automation.digivalet.com
+HIS_SSL=https://his-automation.digivalet.com
+MDS=http://mds-automation.digivalet.com
+MDS_SSL=https://mds-automation.digivalet.com
+VOD=http://vod-automation.digivalet.com
+VOD_SSL=https://vod-automation.digivalet.com
+BUTLER=http://butler-automation.digivalet.com
+BUTLER_SSL=https://butler-automation.digivalet.com
+PRINT_MAILER_SSL=http://his-automation.digivalet.com:9004/printmail/performOrderAction
+BUTLER_CALL_SSL=http://butler-automation.digivalet.com:9005/butler/callbutler
+GATEWAY_SERV_SSL=http://his-automation.digivalet.com:9008/gateway-services
+
+
+HOTEL_CODE=DEV-SERVER
+
+
+
+============================ CRON Verify ============================
+
+BASH_ENV=/var/lib/digivalet/digivalet-config/dgjava
+SHELL=/bin/bash
+* * * * *     root    /usr/bin/curl -H "Content-Type:application/vnd.digivalet.v1+json" $DVS_SSL/dvs/api/server/rundeck/jobState?access_token=da1ca0a34d72bd530bfc21b7a4d70ec903a0611c18058eb8b6290cae6644251e >> /var/log/dvc/dvs_sync_jobs.log
+
+* * * * *     root    /usr/bin/curl -H "Content-Type:application/vnd.digivalet.v1+json"  $DVS_SSL/dvs/api/server/controller/status?access_token=da1ca0a34d72bd530bfc21b7a4d70ec903a0611c18058eb8b6290cae6644251e >> /var/log/dvc/dvs_status_update.log
+
+* * * * *     root    /usr/bin/curl -H "Content-Type:application/vnd.digivalet.v1+json"  $DVS_SSL/dvs/api/pushUpdate/sendUpdate?access_token=da1ca0a34d72bd530bfc21b7a4d70ec903a0611c18058eb8b6290cae6644251e >> /var/log/dvc/dvs_push_update.log
+
+*/3 * * * *     root    /usr/bin/curl -H "Content-Type:application/vnd.digivalet.v1+json" $DVS_SSL/dvs/api/hotel/autoSync?access_token=da1ca0a34d72bd530bfc21b7a4d70ec903a0611c18058eb8b6290cae6644251e
+
+
+-rw-r--r--. 1 root root 1001 Mar 18  2019 /etc/cron.d/dvs
+
+
+
+============================ Version Verify ============================
+
+digivalet-butler-db.x86_64        5.0.3-ga.el7.centos            @dgrepo        
+digivalet-mymovie-db.x86_64       5.0.4-ga.el7.centos            @dgrepo        
+digivalet-oneauth-db.x86_64       5.0.4-ga.el7.centos            @dgrepo        
+digivalet-posi.x86_64             5.0.72-ga.el7.centos           @dgrepo        
+digivalet-zigbee.x86_64           5.0.27-ga.el7.centos           @dgrepo        
+nodejs.x86_64                     2:8.10.0-1nodesource           @dgrepo        
+oneauth.noarch                    5.0.19-ga.el7.centos           @dgrepo        
+push-manager.x86_64               5.0.23-ga.el7.centos           @dgrepo        
+service-assistance.x86_64         5.0.42-ga.el7.centos           @dgrepo        
+system-monitor.x86_64             5.0.15-ga.el7.centos           @dgrepo        
+
+
+cms.noarch                        5.0.0.M.8-ga.el7.centos        installed      
+lcms2.x86_64                      2.6-3.el7                      @base          
+
+
+
+============================ dgjava Verify ============================
+
+DAS_SSL=https://das-automation.digivalet.com
+DVS_SSL=https://dvs-automation.digivalet.com
+HIS_SSL=https://his-automation.digivalet.com
+MDS_SSL=https://mds-automation.digivalet.com
+VOD_SSL=https://vod-automation.digivalet.com
+BUTLER_SSL=https://butler-automation.digivalet.com
+
+
+
+============================ Push Manager Verify ============================
+
+
+
+
+
+
+============================ System Monitor Verify ============================
+
+
+
+
+
+	<digivalet-api-host>https://his.tond.digivalet.in/digivalet-api</digivalet-api-host>
+	<oneauth-host>https://das.tond.digivalet.in/oneauth</oneauth-host>
+	<digimailer-host>https://das.tond.digivalet.in/digimailer.php</digimailer-host>
+
+
+<!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="DatePattern" value="'.'yyyy-MM-dd-a'.log'" />
+		<param name="File" value="/var/log/dvc/package/logs/system-monitor-log4j.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+</log4j:configuration>
+
+
+
+============================ Push Manger and System Monitor Service Verify ============================
+
+● push-manager.service - Push Manager
+   Loaded: loaded (/usr/lib/systemd/system/push-manager.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2020-01-08 07:27:09 UTC; 1 weeks 2 days ago
+ Main PID: 1707 (PushManager)
+   CGroup: /system.slice/push-manager.service
+           └─1707 /digivalet/pkg/push-manager/PushManager
+
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.CmsAPIConsumer.getApiResponse(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.MessagesDao.getPendingMessages(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.MessagesThread.run(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: java.lang.NullPointerException
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.oneauth.client.OneAuthClient.authenticate(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.OneAuthTokenHandler.getNewToken(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.OneAuthTokenHandler.getAccessToken(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.CmsAPIConsumer.getApiResponse(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.PushUpdateDao.getPendingUpdates(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.PushUpdateThread.run(Unknown Source)
+
+
+● system-monitor.service - System-Monitor
+   Loaded: loaded (/usr/lib/systemd/system/system-monitor.service; enabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Wed 2020-01-08 07:37:57 UTC; 1 weeks 2 days ago
+ Main PID: 1605 (code=exited, status=143)
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+
+============================ Propert Flies and Templates Verify ============================
+
+total 72
+drwxrwx---.  2 service java 4096 Apr  2  2019 .
+drwxrwx---. 12 service java 4096 Apr  2  2019 ..
+-rwxrwx---.  1 service java 3314 Jan 28  2019 bmslog4j.xml
+-rwxrwx---.  1 service java  401 Jan 28  2019 bmsSettings.xml
+-rwxrwx---.  1 service java 3298 Mar 14  2019 digivaletServicelog4j.xml
+-rwxrwx---.  1 service java  448 Mar 14  2019 digivaletServiceSettings.xml
+lrwxrwxrwx.  1 service java   50 Apr  2  2019 irdTemplate.html -> /var/lib/digivalet/digivalet-posi/irdTemplate.html
+-rwxrwx---.  1 service java 3314 Mar 14  2019 pmslog4j.xml
+-rwxrwx---.  1 service java  512 Mar 14  2019 pmsSettings.xml
+-rwxrwx---.  1 service java 3314 Feb  8  2019 posilog4j.xml
+-rwxrwx---.  1 service java  301 Feb  8  2019 posiSettings.xml
+lrwxrwxrwx.  1 service java   65 Apr  2  2019 printerconfiguration.properties -> /var/lib/digivalet/printer-mailer/printerconfiguration.properties
+-rwxrwx---.  1 service java 3328 Apr  1  2019 printerMailerlog4j.xml
+-rwxrwx---.  1 service java  336 Apr  1  2019 printerMailerSettings.xml
+lrwxrwxrwx.  1 service java   55 Apr  2  2019 push_manager_config.xml -> /var/lib/digivalet/push-manager/push_manager_config.xml
+-rwxrwx---.  1 service java 3341 Feb  5  2019 serviceAssistancelog4j.xml
+-rwxrwx---.  1 service java  338 Feb  5  2019 serviceAssistanceSettings.xml
+lrwxrwxrwx.  1 service java   54 Apr  2  2019 spaTemplate.html -> /var/lib/digivalet/service-assistance/spaTemplate.html
+-rwxrwx---.  1 service java 1075 Jun  8  2018 system-monitor-config.xml
+-rwxrwx---.  1 service java 1204 Jun  8  2018 system-monitor-log4j.xml
+-rwxrwx---.  1 service java 2092 Aug 24  2018 zigbeelog4j.xml
+-rwxrwx---.  1 service java  314 Aug 24  2018 zigbeeSettings.xml
+
+
+
+============================ Services Status Check ============================
+
+● push-manager.service - Push Manager
+   Loaded: loaded (/usr/lib/systemd/system/push-manager.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2020-01-08 07:27:09 UTC; 1 weeks 2 days ago
+ Main PID: 1707 (PushManager)
+   CGroup: /system.slice/push-manager.service
+           └─1707 /digivalet/pkg/push-manager/PushManager
+
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.CmsAPIConsumer.getApiResponse(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.MessagesDao.getPendingMessages(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.MessagesThread.run(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: java.lang.NullPointerException
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.oneauth.client.OneAuthClient.authenticate(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.OneAuthTokenHandler.getNewToken(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.OneAuthTokenHandler.getAccessToken(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.CmsAPIConsumer.getApiResponse(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.PushUpdateDao.getPendingUpdates(Unknown Source)
+Jan 17 13:11:10 hydra-automation.digivalet.com PushManager[1707]: at com.digivalet.push_manager.PushUpdateThread.run(Unknown Source)
+
+
+● system-monitor.service - System-Monitor
+   Loaded: loaded (/usr/lib/systemd/system/system-monitor.service; enabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Wed 2020-01-08 07:37:57 UTC; 1 weeks 2 days ago
+ Main PID: 1605 (code=exited, status=143)
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+● digivalet-pmsi.service - digivalet-pmsi WEB Interface
+   Loaded: loaded (/usr/lib/systemd/system/digivalet-pmsi.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2020-01-15 13:39:06 UTC; 1 day 23h ago
+  Process: 5078 ExecStartPre=/usr/bin/chmod -R 775 /digivalet/pkg/digivalet-pmsi (code=exited, status=0/SUCCESS)
+  Process: 5075 ExecStartPre=/usr/bin/chown -R service:java /digivalet/pkg/digivalet-pmsi (code=exited, status=0/SUCCESS)
+ Main PID: 5081 (digivalet-pmsi)
+   CGroup: /system.slice/digivalet-pmsi.service
+           └─5081 /digivalet/pkg/digivalet-pmsi/bin/digivalet-pmsi
+
+Jan 15 13:39:09 hydra-automation.digivalet.com digivalet-pmsi[5081]: log4j:WARN Document is invalid: no grammar found.
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: SLF4J: Defaulting to no-operation (NOP) logger implementation
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: Jan 15, 2020 7:09:22 PM org.apache.catalina.startup.HostConfig deployDirectory
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: INFO: Deployment of web application directory /digivalet/pkg/digivalet-pmsi/webapps/pmsi has finished in 16,099 ms
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: Jan 15, 2020 7:09:22 PM org.apache.coyote.AbstractProtocol start
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: INFO: Starting ProtocolHandler ["http-nio-9002"]
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: Jan 15, 2020 7:09:22 PM org.apache.catalina.startup.Catalina start
+Jan 15 13:39:22 hydra-automation.digivalet.com digivalet-pmsi[5081]: INFO: Server startup in 16234 ms
+
+
+● digivalet-posi.service - digivalet-posi WEB Interface
+   Loaded: loaded (/usr/lib/systemd/system/digivalet-posi.service; enabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Wed 2020-01-08 07:34:27 UTC; 1 weeks 2 days ago
+ Main PID: 1257 (code=exited, status=143)
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+● printer-mailer.service - printer-mailer WEB Interface
+   Loaded: loaded (/usr/lib/systemd/system/printer-mailer.service; enabled; vendor preset: disabled)
+   Active: active (running) since Fri 2020-01-17 10:36:27 UTC; 2h 35min ago
+  Process: 8837 ExecStartPre=/usr/bin/chmod -R 775 /digivalet/pkg/printer-mailer (code=exited, status=0/SUCCESS)
+  Process: 8834 ExecStartPre=/usr/bin/chown -R service:java /digivalet/pkg/printer-mailer (code=exited, status=0/SUCCESS)
+ Main PID: 8840 (printer-mailer)
+   CGroup: /system.slice/printer-mailer.service
+           └─8840 /digivalet/pkg/printer-mailer/bin/printer-mailer
+
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: Jan 17, 2020 4:06:58 PM org.apache.catalina.startup.HostConfig deployDirectory
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: INFO: Deploying web application directory /digivalet/pkg/printer-mailer/webapps/manager
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: Jan 17, 2020 4:06:58 PM org.apache.jasper.servlet.TldScanner scanJars
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: Jan 17, 2020 4:06:58 PM org.apache.catalina.startup.HostConfig deployDirectory
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: INFO: Deployment of web application directory /digivalet/pkg/printer-mailer/webapps/manager has finished in 20 ms
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: Jan 17, 2020 4:06:58 PM org.apache.coyote.AbstractProtocol start
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: INFO: Starting ProtocolHandler ["http-nio-9004"]
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: Jan 17, 2020 4:06:58 PM org.apache.catalina.startup.Catalina start
+Jan 17 10:36:58 hydra-automation.digivalet.com printer-mailer[8840]: INFO: Server startup in 30308 ms
+
+
+● gateway-services.service - gateway services WEB Interface
+   Loaded: loaded (/usr/lib/systemd/system/gateway-services.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2020-01-08 07:27:09 UTC; 1 weeks 2 days ago
+ Main PID: 1699 (gateway-service)
+   CGroup: /system.slice/gateway-services.service
+           └─1699 /digivalet/pkg/gateway-services/bin/gateway-services
+
+Jan 17 13:11:24 hydra-automation.digivalet.com gateway-services[1699]: at java.net.Socket.connect(Unknown Source)
+Jan 17 13:11:24 hydra-automation.digivalet.com gateway-services[1699]: at java.net.Socket.<init>(Unknown Source)
+Jan 17 13:11:24 hydra-automation.digivalet.com gateway-services[1699]: at java.net.Socket.<init>(Unknown Source)
+Jan 17 13:11:24 hydra-automation.digivalet.com gateway-services[1699]: at com.mysql.jdbc.StandardSocketFactory.connect(Unknown Source)
+Jan 17 13:11:24 hydra-automation.digivalet.com gateway-services[1699]: at com.mysql.jdbc.MysqlIO.<init>(Unknown Source)
+Jan 17 13:11:24 hydra-automation.digivalet.com gateway-services[1699]: ... 14 more
+Jan 17 13:11:24 hydra-automation.digivalet.com gateway-services[1699]: ERROR 2020-01-17 18:41:24,312 [Thread-2][?:logger.DVLogger:?] : com.digivalet.database.DVMySqlConnector:-1|Error in closing connection with database
+Jan 17 13:11:24 hydra-automation.digivalet.com gateway-services[1699]: java.lang.NullPointerException
+Jan 17 13:11:24 hydra-automation.digivalet.com gateway-services[1699]: at com.digivalet.database.DVMySqlConnector.checkconnection(Unknown Source)
+Jan 17 13:11:24 hydra-automation.digivalet.com gateway-services[1699]: at com.digivalet.database.DVMySqlConnector.run(Unknown Source)
+
+
+● service-assistance.service - Service Assitance WEB Interface
+   Loaded: loaded (/usr/lib/systemd/system/service-assistance.service; enabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Thu 2020-01-09 08:55:29 UTC; 1 weeks 1 days ago
+ Main PID: 11350 (code=exited, status=143)
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+● nodejs-core.service - nodejs core
+   Loaded: loaded (/usr/lib/systemd/system/nodejs-core.service; enabled; vendor preset: disabled)
+   Active: inactive (dead) since Wed 2020-01-08 07:34:38 UTC; 1 weeks 2 days ago
+ Main PID: 2032 (code=killed, signal=TERM)
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+● nodejs-cloud-core.service - nodejs cloud core
+   Loaded: loaded (/usr/lib/systemd/system/nodejs-cloud-core.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2020-01-15 13:43:06 UTC; 1 day 23h ago
+  Process: 5744 ExecStartPre=/usr/bin/sleep 10 (code=exited, status=0/SUCCESS)
+  Process: 5741 ExecStartPre=/usr/bin/chmod -R 775 /var/www/html/dv-services-cloud-api (code=exited, status=1/FAILURE)
+  Process: 5739 ExecStartPre=/usr/bin/chown -R nobody:nobody /var/www/html/dv-services-cloud-api (code=exited, status=1/FAILURE)
+ Main PID: 5783 (node)
+   CGroup: /system.slice/nodejs-cloud-core.service
+           └─5783 /usr/bin/node /var/www/html/dv-services-cloud-api/core.js --ci 932bfab6f8468fc5af49cd158063078bd8cdf9c668bd6d6451bcd6e52ea9f19dfa490c32a9 --cs c369f6efc1478bceae49c3438732038dd297adc23abb3a6401bbd0b22fa5f09fa8480430ae7ee9937e2ca7c599ce38a1e3185b2133e874c272fea086c5302117
+
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/sequelize/.github/ISSUE_TEMPLATE.md’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/sequelize/.github/PULL_REQUEST_TEMPLATE.md’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/sequelize/.gitmodules’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/toposort-class/.gitattributes’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/triple-beam/.gitattributes’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/void-elements/.gitattributes’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/winston-transport/.gitattributes’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/winston-viewer-static/static/.gitkeep’: Operation not permitted
+Jan 15 13:42:56 hydra-automation.digivalet.com chmod[5741]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-cloud-api/node_modules/with/node_modules/acorn/.gitattributes’: Operation not permitted
+Jan 15 13:43:06 hydra-automation.digivalet.com systemd[1]: Started nodejs cloud core.
+
+
+● nodejs-dashboard.service - nodejs dashboard
+   Loaded: loaded (/usr/lib/systemd/system/nodejs-dashboard.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2020-01-15 08:26:48 UTC; 2 days ago
+ Main PID: 22908 (node)
+   CGroup: /system.slice/nodejs-dashboard.service
+           └─22908 /usr/bin/node /var/www/html/dv-services-api/dashboard.js --ci 932bfab6f8468fc5af49cd158063078bd8cdf9c668bd6d6451bcd6e52ea9f19dfa490c32a9 --cs c369f6efc1478bceae49c3438732038dd297adc23abb3a6401bbd0b22fa5f09fa8480430ae7ee9937e2ca7c599ce38a1e3185b2133e874c272fea086c5302117
+
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/sequelize/.github/ISSUE_TEMPLATE.md’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/sequelize/.github/PULL_REQUEST_TEMPLATE.md’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/sequelize/.gitmodules’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/toposort-class/.gitattributes’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/triple-beam/.gitattributes’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/void-elements/.gitattributes’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/winston-transport/.gitattributes’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/winston-viewer-static/static/.gitkeep’: Operation not permitted
+Jan 15 08:26:38 hydra-automation.digivalet.com chmod[22902]: /usr/bin/chmod: changing permissions of ‘/var/www/html/dv-services-api/node_modules/with/node_modules/acorn/.gitattributes’: Operation not permitted
+Jan 15 08:26:48 hydra-automation.digivalet.com systemd[1]: Started nodejs dashboard.
+
+
+
+
+
+
+● nodejs-butler.service - nodejs butler
+   Loaded: loaded (/usr/lib/systemd/system/nodejs-butler.service; enabled; vendor preset: disabled)
+   Active: inactive (dead) since Wed 2020-01-08 07:34:36 UTC; 1 weeks 2 days ago
+ Main PID: 2473 (code=killed, signal=TERM)
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+
+
+
+============================ DB Service Verify ============================
+
+● mariadb.service - MariaDB 10.2.12 database server
+   Loaded: loaded (/usr/lib/systemd/system/mariadb.service; enabled; vendor preset: disabled)
+  Drop-In: /etc/systemd/system/mariadb.service.d
+           └─migrated-from-my.cnf-settings.conf
+   Active: inactive (dead) since Wed 2020-01-08 07:36:03 UTC; 1 weeks 2 days ago
+     Docs: man:mysqld(8)
+           https://mariadb.com/kb/en/library/systemd/
+ Main PID: 1689 (code=exited, status=0/SUCCESS)
+   Status: "MariaDB server is down"
+
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
